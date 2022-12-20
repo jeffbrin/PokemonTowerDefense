@@ -1,0 +1,1 @@
+https://github.com/fuyutarow/pokemon.json/edit/master/en/gen1-en.json - pokemon.json

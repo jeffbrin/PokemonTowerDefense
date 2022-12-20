@@ -1,0 +1,6 @@
+Placing down a metapod breaks the game
+PokemonTowerAttackState.js:66 Uncaught TypeError: Cannot read properties of 
+undefined (reading 'damageClass')
+    at PokemonTowerAttackState.attack (PokemonTowerAttackState.js:66:28)
+
+Can probably catch more pokemon than fit in your box.

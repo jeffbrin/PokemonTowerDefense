@@ -1,0 +1,31 @@
+const ImageName = {
+    Tiles: 'tiles',
+    Player: 'player',
+    Oak: 'oak',
+    Pokemon: 'pokemon',
+    ShinyPokemon: 'shiny-pokemon',
+    CutSceneOak: 'cutSceneOak',
+    Brock: 'brock',
+    Onix: 'onix',
+    Geodude: 'geodude',
+    Level1: 'level1',
+    Level2: 'level2',
+    Level3: 'level3',
+    Level4: 'level4',
+    Level5: 'level5',
+    BrockTiles: 'brock-tiles',
+    Black: 'black',
+    PokeballClosed: 'pokeball-closed',
+    PokeballOpen: 'pokeball-open',
+    RareCandy: 'rare-candy',
+    Nidoran: 'nidoran',
+    Squirtle: 'squirtle',
+    Charmander: 'charmander',
+    Bulbasaur: 'bulbasaur',
+    OakSmall: 'oak-small',
+    Beedrill: 'beedrill',
+    Meowth: 'meowth',
+    RocketGrunts: 'rocket-grunts'
+};
+
+export default ImageName;

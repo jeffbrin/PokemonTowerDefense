@@ -1,0 +1,25 @@
+Nice to have
+
+-Chapters
+-Some status moves
+-Change Title screen and loading screen to use 
+just pokemon sprites instead of whole pokemon. (Optimization)
+- Add pages to your box.
+- Shinies
+
+
+Multiattack Moves
+Priority Moves
+
+Status Moves:
+- Teleport (abra)
+- Poison Powder (bulbasaur)
+- Leer (charmander)
+- Smokescreen (charmander)
+- Tail Whip (squirtle)
+- String shot (weedle, caterpie)
+- Sand Attack (pidgey)
+- Whirlwind (pidgey)
+- Charm (jigglypuff)
+- Sweet Kiss (jigglypuff)
+- Sing (Jigglypuff)

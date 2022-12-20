@@ -1,0 +1,46 @@
+currently saves on a catch, and when a state exits.
+
+I've been putting the playBackgroundMusic calls in attachEventListeners because I want it to happen any time you are in that state.
+Username is not being saved go to saveAndLoad to add it.
+
+
+Story
+Level 1 - Rattata steal stuff - Add "bring candy to brock"
+-Pokemon - Rattata
+
+Veridian forest - Beedrill and butterfree attack and you drop candies. Catepies, pidgeys, ... try to get them.
+- Pokemon
+	Catepie - 32.5%
+	Oddish - 10%
+	Weedle 32.5%
+	Pidgey 15%
+	Pikachu - 5%
+	Jigglypuff - 5%
+
+
+Veridian Pond - You and your pokemon take a break, and you leave your candies out to not get wet
+- Pokemon
+	Psyduck - 12.5%
+	Poliwag - 12.5%
+	Caterpie - 25%
+	Weedle - 25%
+	Metapod - 10%
+	Kakuna - 10%
+	Paras - 5%
+
+Pewter City Entrance - Team rocket wants to steal your candy. Stop them
+- Pokemon
+	Meowth - 15% 
+	Ekans - 20%
+	Grimer - 15%
+	koffing - 20%
+	Rattata - 25%
+	Wabbufet - 5%
+
+Brock's Gym - Finally deliver rare candies to brock. He lets you catch any pokemon you can.
+- Pokemon
+	- geodude - 35%
+	- onix 35%
+	- diglet - 20%
+	- dugtrio - 5%
+	- graveler - 5%
