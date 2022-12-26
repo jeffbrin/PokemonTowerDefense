@@ -28,6 +28,8 @@ export const save = () => {
  */
 export const loadData = () => {
     let data;
+    console.log(localStorage.getItem(saveItemKey));
+
     try{
         data = JSON.parse(localStorage.getItem(saveItemKey));
     }

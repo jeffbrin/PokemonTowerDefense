@@ -40,6 +40,25 @@ export default class InputUsernameState extends StateThatSaves{
         this.attachEventListeners();
     }
 
+    enter(){
+
+        // https://www.geeksforgeeks.org/how-to-detect-whether-the-website-is-being-opened-in-a-mobile-device-or-a-desktop-in-javascript/
+        /* Storing user's device details in a variable*/
+        let details = navigator.userAgent;
+  
+        /* Creating a regular expression 
+        containing some mobile devices keywords 
+        to search it in details string*/
+        let regexp = /android|iphone|kindle|ipad/i;
+  
+        /* Using test() method to search regexp in details
+        it returns boolean value*/
+        let isMobileDevice = regexp.test(details);
+
+        if (isMobileDevice)
+            prompt("This is a workaround to open mobile keyboards. Close this prompt.");
+    }
+
     update(dt){
         this.inputPanel.update(dt);
 
