@@ -1,0 +1,7 @@
+cd into PokemonTowerDefense, the folder containing src
+rn 'npx webpack' this should update the main.js file in the dist folder
+change index.html to reference dist/main.js instead of src/main.js
+zip index.html, assets, dist, and favicon. Also include a src folder containing attacks.json, config.json and pokemon.json
+
+
+butler push ./upload.zip JoffLobster/pokemon-tower-defense:windows-beta
