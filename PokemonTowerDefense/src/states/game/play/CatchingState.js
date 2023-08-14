@@ -57,6 +57,7 @@ export default class CatchingState extends StateThatSaves {
 
 	handleMouseUp(event) {
 		// Let go of the pokeball
+		this.handleMouseMove(event);
 		this.grabbedPokeball.drop();
 		let caughtPokemon = null;
 		if (this.grabbedPokeball.currentSprite == Pokeball.State.OPEN) {

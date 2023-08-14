@@ -31,8 +31,8 @@ import TitleScreenState from "./states/game/TitleScreenState.js";
 // Change here if the width or height change in index.html
 const htmlCanvasWidth = 1008
 const htmlCanvasHeight = 816
-let bodyWidthPercentage = document.body.clientWidth / htmlCanvasWidth * 100;
-let bodyHeightPercentage = document.body.clientHeight / htmlCanvasHeight * 100;
+let bodyWidthPercentage = document.body.clientWidth / htmlCanvasWidth;
+let bodyHeightPercentage = document.body.clientHeight / htmlCanvasHeight;
 let zoom;
 if (bodyWidthPercentage < bodyHeightPercentage) {
 	zoom = bodyWidthPercentage
@@ -41,12 +41,7 @@ else {
 	zoom = bodyHeightPercentage
 }
 
-if (!IS_MOBILE_DEVICE) {
-	document.body.style.zoom = `${zoom}%`;
-}
-else {
-	document.body.style.transform = "scale(" + zoom / 100 + ")";
-}
+document.body.style.transform = "scale(" + zoom + ")";
 
 // Set the dimensions of the play area.
 canvas.width = CANVAS_WIDTH;
