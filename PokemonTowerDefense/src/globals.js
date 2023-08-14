@@ -98,5 +98,5 @@ let regexp = /android|iphone|kindle|ipad/i;
 
 /* Using test() method to search regexp in details
 it returns boolean value*/
-export const IS_MOBILE_DEVICE = regexp.test(details);
-// export const IS_MOBILE_DEVICE = true;
+// export const IS_MOBILE_DEVICE = regexp.test(details);
+export const IS_MOBILE_DEVICE = true;

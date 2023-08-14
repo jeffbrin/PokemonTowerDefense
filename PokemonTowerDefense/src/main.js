@@ -17,6 +17,7 @@ import {
 	context,
 	fonts,
 	images,
+	IS_MOBILE_DEVICE,
 	keys,
 	MOVES,
 	POKEMON_DATA,
@@ -40,7 +41,12 @@ else {
 	zoom = bodyHeightPercentage
 }
 
-document.body.style.zoom = `${zoom}%`;
+if (!IS_MOBILE_DEVICE) {
+	document.body.style.zoom = `${zoom}%`;
+}
+else {
+	document.body.style.transform = "scale(" + zoom / 100 + ")";
+}
 
 // Set the dimensions of the play area.
 canvas.width = CANVAS_WIDTH;

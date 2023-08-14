@@ -22,14 +22,14 @@ export default class CatchingState extends StateThatSaves {
 	}
 
 	enter() {
-		canvas.addEventListener("mouseup", (e) => this.handleMouseUp(e), { once: true });
-		this.mousemoveCallback = (e) => this.handleMouseMove(e)
 		if (!IS_MOBILE_DEVICE) {
-			canvas.addEventListener("mousemove", this.mousemoveCallback);
+			canvas.addEventListener("mouseup", (e) => this.handleMouseUp(e), { once: true });
 		}
 		else {
-			canvas.addEventListener("mousedown", this.mousemoveCallback);
+			canvas.addEventListener("mousedown", (e) => this.handleMouseUp(e), { once: true });
 		}
+		this.mousemoveCallback = (e) => this.handleMouseMove(e)
+		canvas.addEventListener("mousemove", this.mousemoveCallback);
 		this.level.ui.pokeball.grab()
 		this.grabbedPokeball = this.level.ui.pokeball;
 		this.level.pause();
