@@ -10,8 +10,7 @@ import PokemonFactory from "./services/PokemonFactory.js";
 export const canvas = document.createElement('canvas');
 export const context = canvas.getContext('2d') || new CanvasRenderingContext2D();
 export const POKEMON_DATA = await (await fetch("./src/pokemon.json")).json();
-POKEMON_DATA.forEach(pokemon =>
-{
+POKEMON_DATA.forEach(pokemon => {
     pokemon.name = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
 });
 
@@ -40,8 +39,7 @@ export const criticalHitChance = 0.05;
 export const canvasScale = 3;
 
 export const mousePosition = new Vector(0, 0);
-canvas.addEventListener("mousemove", (event) => 
-{
+canvas.addEventListener("mousemove", (event) => {
     mousePosition.x = event.offsetX / canvasScale;
     mousePosition.y = event.offsetY / canvasScale;
 });
@@ -50,12 +48,12 @@ export const pokedollarIcon = "$";
 
 let highestUnlockedLevel = 1;
 export const setHighestUnlockedLevel = (level) => highestUnlockedLevel = level;
-export const getHighestUnlockedLevel = () => {return highestUnlockedLevel};
+export const getHighestUnlockedLevel = () => { return highestUnlockedLevel };
 
 let music;
 let musicName;
 export const playBackgroundMusic = (soundName) => {
-    if(music){
+    if (music) {
         if (musicName == soundName)
             return
         music.stop();
@@ -88,3 +86,17 @@ export const getUsername = () => {
 }
 
 export const SHINY_POKEMON_CHANCE = 1 / 2000
+
+// https://www.geeksforgeeks.org/how-to-detect-whether-the-website-is-being-opened-in-a-mobile-device-or-a-desktop-in-javascript/
+/* Storing user's device details in a variable*/
+let details = navigator.userAgent;
+
+/* Creating a regular expression 
+containing some mobile devices keywords 
+to search it in details string*/
+let regexp = /android|iphone|kindle|ipad/i;
+
+/* Using test() method to search regexp in details
+it returns boolean value*/
+export const IS_MOBILE_DEVICE = regexp.test(details);
+// export const IS_MOBILE_DEVICE = true;

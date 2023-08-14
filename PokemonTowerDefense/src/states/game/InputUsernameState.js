@@ -1,6 +1,6 @@
 import { isPointInObject } from "../../../lib/CollisionHelper.js";
 import Colour from "../../enums/Colour.js";
-import { canvas, canvasScale, CANVAS_HEIGHT, CANVAS_WIDTH, context, keys, setUsername, stateStack } from "../../globals.js";
+import { canvas, canvasScale, CANVAS_HEIGHT, CANVAS_WIDTH, context, keys, setUsername, stateStack, IS_MOBILE_DEVICE } from "../../globals.js";
 import Tile from "../../services/Tile.js";
 import Background from "../../user-interface/Background.js";
 import Button from "../../user-interface/Button.js";
@@ -42,20 +42,7 @@ export default class InputUsernameState extends StateThatSaves {
 
     enter() {
 
-        // https://www.geeksforgeeks.org/how-to-detect-whether-the-website-is-being-opened-in-a-mobile-device-or-a-desktop-in-javascript/
-        /* Storing user's device details in a variable*/
-        let details = navigator.userAgent;
-
-        /* Creating a regular expression 
-        containing some mobile devices keywords 
-        to search it in details string*/
-        let regexp = /android|iphone|kindle|ipad/i;
-
-        /* Using test() method to search regexp in details
-        it returns boolean value*/
-        this.isMobileDevice = regexp.test(details);
-
-        if (this.isMobileDevice)
+        if (IS_MOBILE_DEVICE)
             this.promptUsername()
     }
 
@@ -152,7 +139,7 @@ export default class InputUsernameState extends StateThatSaves {
 
     async enterName() {
         if (!this.inputPanel.playerInput) {
-            if (this.isMobileDevice && !this.mobileUsername) {
+            if (IS_MOBILE_DEVICE && !this.mobileUsername) {
                 this.promptUsername();
                 return;
             }
