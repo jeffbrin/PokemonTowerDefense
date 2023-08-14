@@ -10,8 +10,7 @@
 
 import Game from "../lib/Game.js";
 import SoundName from "./enums/SoundName.js";
-import
-{
+import {
 	canvas,
 	CANVAS_HEIGHT,
 	CANVAS_WIDTH,
@@ -27,6 +26,21 @@ import
 } from "./globals.js";
 import LoadingState from "./states/game/LoadingState.js";
 import TitleScreenState from "./states/game/TitleScreenState.js";
+
+// Change here if the width or height change in index.html
+const htmlCanvasWidth = 1008
+const htmlCanvasHeight = 816
+let bodyWidthPercentage = document.body.clientWidth / htmlCanvasWidth * 100;
+let bodyHeightPercentage = document.body.clientHeight / htmlCanvasHeight * 100;
+let zoom;
+if (bodyWidthPercentage < bodyHeightPercentage) {
+	zoom = bodyWidthPercentage
+}
+else {
+	zoom = bodyHeightPercentage
+}
+
+document.body.style.zoom = `${zoom}%`;
 
 // Set the dimensions of the play area.
 canvas.width = CANVAS_WIDTH;
@@ -58,13 +72,11 @@ titleScreenState.removeEventListeners();
 stateStack.push(new LoadingState("Loading Assets..."));
 
 // Add event listeners for player input.
-canvas.addEventListener('keydown', event =>
-{
+canvas.addEventListener('keydown', event => {
 	keys[event.key] = true;
 });
 
-canvas.addEventListener('keyup', event =>
-{
+canvas.addEventListener('keyup', event => {
 	keys[event.key] = false;
 });
 
@@ -79,13 +91,12 @@ canvas.focus();
 
 // Load attack sounds
 // After loading the attack sounds, pop the loading state.
-const moveSoundDefinitionsPromises = MOVES.map(async move =>
-{
+const moveSoundDefinitionsPromises = MOVES.map(async move => {
 	// If the audio file doesn't exist, return null
 	const splitName = move.name.split('-');
 	splitName[0] = splitName[0].charAt(0).toUpperCase() + splitName[0].slice(1);
 	const name = splitName.reduce((prev, current) => prev + current.charAt(0).toUpperCase() + current.slice(1));
-	const response = await fetch(`${ SoundName.AttacksDirectory }${ name }.wav`);
+	const response = await fetch(`${SoundName.AttacksDirectory}${name}.wav`);
 
 	if (response.status === 404)
 		return null;
@@ -93,7 +104,7 @@ const moveSoundDefinitionsPromises = MOVES.map(async move =>
 	// Otherwise return the sound definition
 	return {
 		name: move.name,
-		path: `${ SoundName.AttacksDirectory }${ name }.wav`,
+		path: `${SoundName.AttacksDirectory}${name}.wav`,
 		size: 6,
 		volume: 0.3,
 		loop: false,
@@ -101,8 +112,7 @@ const moveSoundDefinitionsPromises = MOVES.map(async move =>
 	};
 });
 Promise.all(moveSoundDefinitionsPromises)
-	.then(soundDefinitions => 
-	{
+	.then(soundDefinitions => {
 		// Pass the sound definitions and filter out the nulls
 		sounds.load(soundDefinitions.filter(def => def));
 		// Pop the loading state when the sound definitions are loaded
@@ -114,27 +124,25 @@ Promise.all(moveSoundDefinitionsPromises)
 	);
 
 // Load the cries
-const crySoundDefinitionPromises = POKEMON_DATA.map(async pokemon =>
-	{
-		// If the audio file doesn't exist, return null
-		
-		const response = await fetch(`${ SoundName.CriesDirectory }${ pokemon.no }.ogg`);
-	
-		if (response.status === 404)
-			return null;
-	
-		// Otherwise return the sound definition
-		return {
-			name: `Pokemon${pokemon.no}`,
-			path: `${ SoundName.CriesDirectory }${ pokemon.no }.ogg`,
-			size: 1,
-			volume: 0.3,
-			loop: false
-		};
-	});
+const crySoundDefinitionPromises = POKEMON_DATA.map(async pokemon => {
+	// If the audio file doesn't exist, return null
+
+	const response = await fetch(`${SoundName.CriesDirectory}${pokemon.no}.ogg`);
+
+	if (response.status === 404)
+		return null;
+
+	// Otherwise return the sound definition
+	return {
+		name: `Pokemon${pokemon.no}`,
+		path: `${SoundName.CriesDirectory}${pokemon.no}.ogg`,
+		size: 1,
+		volume: 0.3,
+		loop: false
+	};
+});
 Promise.all(crySoundDefinitionPromises)
-	.then(soundDefinitions => 
-	{
+	.then(soundDefinitions => {
 		// Pass the sound definitions and filter out the nulls
 		sounds.load(soundDefinitions.filter(def => def));
 	}
