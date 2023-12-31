@@ -1,5 +1,7 @@
 # Game Programming F22 Project - Pokémon Tower Defense
 
+## ▶️ Play Here: https://github.com/jeffbrin/PokemonTowerDefensePlay
+
 ## ✒️ Description
 In this tower defense styled game, players will become Pokémon trainers and use their Pokémon to defend cities against enraged and invasive Pokémon species. Players choose their team of up to 6 Pokémon and defend against waves of incoming wild Pokémon. Players are able to place their Pokémon on highlighted squares and can move them as they please. 
 
